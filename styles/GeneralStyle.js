@@ -2,8 +2,6 @@ import { StyleSheet } from 'react-native';
 import Dimensions from 'Dimensions';
 import Constants from './Constants';
 
-let shadowIntensity = 2;
-
 const GeneralStyle = StyleSheet.create({
   MainView: {
     width: Dimensions.get('window').width,

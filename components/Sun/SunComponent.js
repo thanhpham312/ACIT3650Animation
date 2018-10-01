@@ -6,8 +6,13 @@ import * as Animatable from 'react-native-animatable';
 export default class SunComponent extends Component {
 
   bounce = () => {
-    this.view.bounce(800).then((endState) => {
-      console.log(endState.finished ? 'bounce finished' : 'bounce cancelled');
+    this.view.bounce(2000).then((endState) => {
+      if (endState.finished) {
+        this.setState({
+          moved: !this.state.moved
+        });
+        this.view.transition = 'backgroundColor';
+      }
     })
   };
 
@@ -18,7 +23,7 @@ export default class SunComponent extends Component {
   constructor() {
     super();
     this.state = {
-      clicked: false
+      moved: false
     }
   }
   
@@ -27,13 +32,19 @@ export default class SunComponent extends Component {
 
   render() {
     return (
-      <Animatable.View ref={this.handleViewRef}>
+      <Animatable.View
+        ref={this.handleViewRef}
+        style={this.state.moved? SunStyle.SunWrapperMovedtoTop : SunStyle.SunWrapper}
+        transition={["left", "top"]}
+        duration={1500}
+        >
         <TouchableOpacity
-          style={SunStyle.SunWrapper}
           onPress={this.bounce}
         >
           <Animatable.View
-            style={SunStyle.Sun}
+            style={this.state.moved ? SunStyle.SunMovedtoTop : SunStyle.Sun}
+            transition={["backgroundColor", "width", "height", "borderRadius"]}
+            duration={1500}
           ></Animatable.View>
         </TouchableOpacity>
       </Animatable.View>

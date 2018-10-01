@@ -6,10 +6,13 @@ const Constants = {
         },
         Orange: {
             '500': '#FF9800',
+        },
+        DeepOrange: {
+            '500': '#FF5722',
         }
     },
     Size: {
-        'Sun': 50
+        'Sun': 100
     }
 }
 
