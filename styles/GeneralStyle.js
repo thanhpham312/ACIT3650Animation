@@ -6,9 +6,9 @@ const GeneralStyle = StyleSheet.create({
   MainView: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-    backgroundColor: Constants.Color.LightBlue['500'],
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    position: 'absolute',
   },
   buttons: {
     shadowColor: 'black',

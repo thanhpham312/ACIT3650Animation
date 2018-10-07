@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Dimensions from 'Dimensions';
-import Constants from './Constants';
+import Constants from '../../styles/Constants';
 
 const SunStyle = StyleSheet.create({
   SunWrapper: {

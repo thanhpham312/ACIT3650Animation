@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
-import SunStyle from '../../styles/SunStyle';
+import SunStyle from './SunStyle';
 import * as Animatable from 'react-native-animatable';
 
 export default class SunComponent extends Component {
