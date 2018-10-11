@@ -5,23 +5,24 @@ import * as Animatable from 'react-native-animatable';
 
 export default class SunComponent extends Component {
 
-  bounce = () => {
-    this.view.bounce(2000).then((endState) => {
-      if (endState.finished) {
-        this.setState({
-          moved: !this.state.moved
-        });
-        this.view.transition = 'backgroundColor';
-      }
-    })
-  };
+  // bounce = () => {
+  //   this.view.bounce(2000).then((endState) => {
+  //     if (endState.finished) {
+  //       this.setState({
+  //         moved: !this.state.moved
+  //       });
+  //       this.view.transition = 'backgroundColor';
+  //       this.props.ChangeDayNight();
+  //     }
+  //   })
+  // };
 
   handleViewRef = (ref) => {
     this.view = ref
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       moved: false
     }
@@ -34,16 +35,19 @@ export default class SunComponent extends Component {
     return (
       <Animatable.View
         ref={this.handleViewRef}
-        style={this.state.moved? SunStyle.SunWrapperMovedtoTop : SunStyle.SunWrapper}
-        transition={["left", "top"]}
-        duration={1500}
+        style={SunStyle.SunWrapper}
         >
         <TouchableOpacity
-          onPress={this.bounce}
+          onPress={() => {
+            this.setState({
+              moved: !this.state.moved
+            });
+            this.props.ChangeDayNight();
+          }}
         >
           <Animatable.View
             style={this.state.moved ? SunStyle.SunMovedtoTop : SunStyle.Sun}
-            transition={["backgroundColor", "width", "height", "borderRadius"]}
+            transition="backgroundColor"
             duration={1500}
           ></Animatable.View>
         </TouchableOpacity>
