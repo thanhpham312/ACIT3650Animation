@@ -9,51 +9,7 @@ import BirdComponent from '../../components/Bird/BirdComponent';
 import * as Animatable from 'react-native-animatable';
 import sample from 'lodash/sample';
 
-// let CreateClouds = () => {
-//   return (
-//   <CloudComponent 
-//     CloudSize={sample(Constants.Size.Clouds)}
-//     CloudLocation={sample(Constants.Location.Clouds)}
-//   />)
-// }
-
 export default class SkyComponent extends Component {
-
-  // componentDidMount() {
-  //   this.state.Clouds.push({
-  //     CloudSize: 0.3,
-  //     CloudLocation: 0.3,
-  //     CloudMovement: 0
-  //   })
-  //   this.setState({
-  //     Clouds: this.state.Clouds
-  //   })
-  //   this._interval = setInterval(() => {
-  //     if (this.state.Clouds.length < 5) {
-  //       this.state.Clouds.push({
-  //         CloudSize: sample(Constants.Size.Clouds),
-  //         CloudLocation: sample(Constants.Location.Clouds),
-  //         CloudSpeed: sample(Constants.Speed.Clouds),
-  //         CurrentTimeStamp: 0
-  //       });
-  //     }
-  //     for (var i = 0; i < this.state.Clouds.length; i++) {
-  //       if(this.state.Clouds[i].CurrentTimeStamp > this.state.Clouds[i].CloudSpeed) {
-  //         this.state.Clouds.splice(i, 1);
-  //       } else {
-  //         this.state.Clouds[i].CurrentTimeStamp += 1000
-  //       }
-  //     }
-  //     console.log(this.state.Clouds)
-  //     this.setState({
-  //       Clouds: this.state.Clouds
-  //     })
-  //   }, 1000);
-  // }
-  
-  // componentWillUnmount() {
-  //   clearInterval(this._interval);
-  // }
 
   constructor() {
     super();
@@ -73,14 +29,6 @@ export default class SkyComponent extends Component {
   
 
   render() {
-    // let Clouds = this.state.Clouds.map((Cloud, i) => {
-    //   return <CloudComponent 
-    //       key={i}
-    //       CloudSize={Cloud.CloudSize}
-    //       CloudLocation={Cloud.CloudLocation}
-    //       CloudMovement={Cloud.CloudMovement}
-    //     />
-    // })
     return (
       <Animatable.View
         ref= {
@@ -93,7 +41,6 @@ export default class SkyComponent extends Component {
         duration={3000}
       >
         <SunComponent ChangeDayNight={this.ChangeDayNight} />
-        {/* {Clouds} */}
         <CloudsComponent />
         <BirdComponent
           BirdSize={59}
